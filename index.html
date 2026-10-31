@@ -124,29 +124,16 @@ nav a:hover svg { transform: translate(1px, -1px); }
 }
 .stage { aspect-ratio: 16 / 9; overflow: hidden; }
 video { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* Color blocks after a printed swatch: blush over a red rule over sky blue on the left, an orange
-   rule over lime on the right. The wordmark sits low on the sky, the legal line low on the lime. */
+/* The footage fades to white at the bottom, so a hairline marks where the video ends. */
 footer {
-  display: grid;
-  grid-template-columns: 62fr 38fr;
-  grid-template-rows: 16fr 6fr 10fr 68fr;
-  grid-template-areas:
-    "blush orange"
-    "blush lime"
-    "red   lime"
-    "sky   lime";
-  height: clamp(16rem, 32vw, 28rem);
+  padding: 1.5rem 16px 2rem;
+  border-top: 1px solid #e5e5ea;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #a1a1a6;
 }
-.blush { grid-area: blush; background: #eadfe1; }
-.red { grid-area: red; background: #db4b3e; }
-.orange { grid-area: orange; background: #e39a3b; }
-.lime, .sky { display: flex; align-items: flex-end; padding: 0 clamp(14px, 2.5vw, 2rem) clamp(1rem, 3vw, 2.25rem); }
-.lime { grid-area: lime; background: #b9cf4e; }
-.sky { grid-area: sky; background: #82b1dd; }
-.mark { margin: 0; font-size: clamp(1.75rem, 3.6vw, 3.25rem); font-weight: 700; letter-spacing: -0.03em; line-height: 0.8; color: #24498f; }
-.legal { margin: 0; font-size: 0.75rem; line-height: 1.4; color: #1f3e6e; }
-.legal .company { color: inherit; text-decoration: underline dashed 1px; text-underline-offset: 3px; transition: color 160ms ease; }
-.legal .company:hover { color: #0b1f3f; }
+footer .company { color: inherit; text-decoration: underline dashed 1px; text-underline-offset: 3px; transition: color 160ms ease; }
+footer .company:hover { color: #3a3a3a; }
 /* Narrow screens crop the empty white on either side so the phone fills the width, and drop the
    description under the title. */
 @media (max-width: 760px) {
@@ -160,6 +147,8 @@ footer {
   .marquee li { filter: brightness(0) invert(1); opacity: 0.45; }
   nav a { color: #7a7a7a; }
   nav a:hover { color: #e0e0e0; }
+  footer { border-top-color: #2c2c2e; color: #6e6e73; }
+  footer .company:hover { color: #e0e0e0; }
 }
 </style>
 </head>
@@ -206,13 +195,7 @@ footer {
     <video src="newfrida-web.mp4" poster="assets/newfrida-poster.jpg" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-label="Frida interface preview"></video>
   </div>
 </main>
-<footer>
-  <div class="blush"></div>
-  <div class="red"></div>
-  <div class="sky"><p class="mark">frida</p></div>
-  <div class="orange"></div>
-  <div class="lime"><p class="legal">&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</p></div>
-</footer>
+<footer>&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</footer>
 <script>
 // The title appears roughly left to right: each letter flickers through one to three colored blocks
 // or colored letters, then settles. Screen readers get the plain title from a hidden copy.
