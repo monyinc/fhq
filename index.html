@@ -24,7 +24,7 @@
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* One centered column: header, intro and badge, then the video edge to edge, then the footer. */
 html, body { margin: 0; }
@@ -51,11 +51,10 @@ h1 {
 }
 h1:hover { opacity: 0.6; }
 h1 a { color: inherit; text-decoration: none; }
-nav { display: flex; gap: 1.25rem; font-size: 0.875rem; line-height: 1; }
-nav a { display: inline-flex; align-items: center; gap: 3px; color: #8a8a8a; text-decoration: none; transition: color 160ms ease; }
-nav svg { display: block; transition: transform 160ms ease; }
+/* The header links take the title's rounded font. */
+nav { display: flex; gap: 1.25rem; font-family: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif; font-size: 1rem; font-weight: 500; line-height: 1; }
+nav a { color: #8a8a8a; text-decoration: none; transition: color 160ms ease; }
 nav a:hover { color: #3a3a3a; }
-nav a:hover svg { transform: translate(1px, -1px); }
 .intro {
   display: flex;
   flex-direction: column;
@@ -122,18 +121,47 @@ nav a:hover svg { transform: translate(1px, -1px); }
 @media (prefers-reduced-motion: reduce) {
   .marquee ul { animation: none; }
 }
-.stage { aspect-ratio: 16 / 9; overflow: hidden; }
+.stage { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
 video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Pause and play on a dark frosted circle, the same in both color schemes since the footage
+   behind it is always light grey. */
+.playback {
+  position: absolute;
+  top: clamp(12px, 2.5vw, 24px);
+  right: clamp(12px, 2.5vw, 24px);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 0.3);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  color: #fff;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+.playback:hover { background: rgb(0 0 0 / 0.42); }
+.playback:active { transform: scale(0.94); }
+.playback:focus-visible { outline: 2px solid #0071e3; outline-offset: 2px; }
+.playback svg { display: block; }
 /* The footage fades to white at the bottom, so a hairline marks where the video ends. */
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
   padding: 1.5rem 16px 2rem;
   border-top: 1px solid #e5e5ea;
   font-size: 0.75rem;
   text-align: center;
   color: #a1a1a6;
 }
-footer .company { color: inherit; text-decoration: underline dashed 1px; text-underline-offset: 3px; transition: color 160ms ease; }
-footer .company:hover { color: #3a3a3a; }
+footer a { color: inherit; text-decoration: none; transition: color 160ms ease; }
+footer a:hover { color: #3a3a3a; }
+footer .company { text-decoration: underline dashed 1px; text-underline-offset: 3px; }
 /* Narrow screens crop the empty white on either side so the phone fills the width, and drop the
    description under the title. */
 @media (max-width: 760px) {
@@ -148,7 +176,7 @@ footer .company:hover { color: #3a3a3a; }
   nav a { color: #7a7a7a; }
   nav a:hover { color: #e0e0e0; }
   footer { border-top-color: #2c2c2e; color: #6e6e73; }
-  footer .company:hover { color: #e0e0e0; }
+  footer a:hover { color: #e0e0e0; }
 }
 </style>
 </head>
@@ -156,8 +184,8 @@ footer .company:hover { color: #3a3a3a; }
 <header>
   <h1><a href="/">frida</a></h1>
   <nav>
-    <a href="terms/">Terms <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="privacy/">Privacy <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://mony.company/" target="_blank" rel="noopener">Company</a>
+    <a href="support/">Support</a>
   </nav>
 </header>
 <main>
@@ -193,9 +221,16 @@ footer .company:hover { color: #3a3a3a; }
   </section>
   <div class="stage">
     <video src="newfrida-web.mp4" poster="assets/newfrida-poster.jpg" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-label="Frida interface preview"></video>
+    <button class="playback" type="button" aria-label="Pause video">
+      <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round"><polygon points="3 2 5 2 5 12 3 12"/><polygon points="9 2 11 2 11 12 9 12"/></svg>
+    </button>
   </div>
 </main>
-<footer>&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</footer>
+<footer>
+  <span>&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</span>
+  <a href="terms/">Terms</a>
+  <a href="privacy/">Privacy</a>
+</footer>
 <script>
 // The title appears roughly left to right: each letter flickers through one to three colored blocks
 // or colored letters, then settles. Screen readers get the plain title from a hidden copy.
@@ -247,6 +282,39 @@ footer .company:hover { color: #3a3a3a; }
     if (busy) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
+})();
+
+// The button over the video pauses and resumes it, and shows whichever it will do next. Its glyph
+// is two shapes that morph between the pause bars and the two halves of the play triangle.
+(() => {
+  const video = document.querySelector('.stage video');
+  const button = document.querySelector('.playback');
+  const shapes = button.querySelectorAll('polygon');
+  const pause = [[3, 2, 5, 2, 5, 12, 3, 12], [9, 2, 11, 2, 11, 12, 9, 12]];
+  const play = [[4.6, 2.3, 8.6, 4.65, 8.6, 9.35, 4.6, 11.7], [8.6, 4.65, 12.6, 7, 12.6, 7, 8.6, 9.35]];
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let shown = 0; // 0 is the pause glyph, 1 is play
+  let frame;
+  const draw = p => shapes.forEach((s, i) =>
+    s.setAttribute('points', pause[i].map((v, j) => v + (play[i][j] - v) * p).join(' ')));
+  const sync = () => {
+    button.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
+    const from = shown;
+    const to = video.paused ? 1 : 0;
+    cancelAnimationFrame(frame);
+    if (still) return draw(shown = to);
+    const t0 = performance.now();
+    const step = now => {
+      const k = Math.min((now - t0) / 220, 1);
+      shown = from + (to - from) * (1 - (1 - k) ** 3);
+      draw(shown);
+      if (k < 1) frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+  };
+  button.addEventListener('click', () => (video.paused ? video.play() : video.pause()));
+  video.addEventListener('play', sync);
+  video.addEventListener('pause', sync);
 })();
 </script>
 </body>
