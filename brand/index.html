@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Kit - Frida</title>
+<meta name="description" content="The Frida logo and app icon, ready to download.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frida">
+<meta property="og:url" content="https://frida.chat/brand/">
+<meta property="og:title" content="Frida Brand Kit">
+<meta property="og:description" content="The Frida logo and app icon, ready to download.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* The home page's header and footer around one column: the title and a download-all button,
+   then the logos as cards, each on its own background, with SVG and PNG under it. */
+html, body { margin: 0; }
+body {
+  background: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1d1d1f;
+}
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.5rem clamp(16px, 4vw, 2.5rem);
+}
+h1 { margin: 0; line-height: 0; }
+h1 a { display: block; }
+h1 img { display: block; height: 32px; width: auto; opacity: 0.85; transition: opacity 160ms ease; }
+h1 a:hover img { opacity: 1; }
+nav { display: flex; gap: 1.25rem; font-family: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif; font-size: 1rem; font-weight: 500; line-height: 1; }
+nav a { color: #8a8a8a; text-decoration: none; transition: color 160ms ease; }
+nav a:hover, nav a[aria-current="page"] { color: #3a3a3a; }
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 8vh, 4.5rem) clamp(16px, 4vw, 2.5rem) clamp(3rem, 8vh, 5rem);
+}
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-bottom: 2.25rem;
+}
+h2 {
+  margin: 0;
+  font-family: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.75rem, 1.25rem + 2vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.top p { margin: 0.5rem 0 0; font-size: 1.0625rem; line-height: 1.5; color: #6e6e73; }
+.all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 160ms ease, transform 160ms ease;
+}
+.all:hover { background: #3a3a3c; }
+.all:active { transform: scale(0.97); }
+.all svg { display: block; }
+
+/* Section labels, small and grey. */
+h3 { margin: 0 0 1rem; font-size: 0.8125rem; font-weight: 500; color: #a1a1a6; }
+section + section { margin-top: 3rem; }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.card { border: 1px solid #e5e5ea; border-radius: 18px; overflow: hidden; }
+.preview { display: grid; place-items: center; aspect-ratio: 16 / 10; }
+.preview img { display: block; width: 46%; height: auto; }
+.preview.paper { background: #fafafa; }
+.preview.white { background: #fff; }
+.preview.ink { background: #111; }
+.preview.icon { background: #f2f2f4; }
+.preview.icon img { width: 27%; filter: drop-shadow(0 6px 16px rgb(0 0 0 / 0.12)); }
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.9rem 0.8rem 1.1rem;
+  border-top: 1px solid #e5e5ea;
+}
+.meta span { font-size: 0.9375rem; font-weight: 500; }
+.meta small { margin-left: 0.4rem; font-size: 0.8125rem; font-weight: 400; color: #a1a1a6; }
+.formats { display: flex; gap: 0.4rem; }
+.formats a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #f2f2f4;
+  color: #1d1d1f;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+.formats a:hover { background: #e5e5ea; }
+
+.note { margin: 3rem 0 0; font-size: 0.8125rem; line-height: 1.6; color: #a1a1a6; }
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  padding: 1.5rem 16px 2rem;
+  border-top: 1px solid #e5e5ea;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #a1a1a6;
+}
+footer a { color: inherit; text-decoration: none; transition: color 160ms ease; }
+footer a:hover { color: #3a3a3a; }
+footer .company { text-decoration: underline dashed 1px; text-underline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
+/* The logo previews keep their own backgrounds in dark mode; everything around them darkens. */
+@media (prefers-color-scheme: dark) {
+  body { background: #0a0a0a; color: #f5f5f7; }
+  nav a { color: #7a7a7a; }
+  nav a:hover, nav a[aria-current="page"] { color: #e0e0e0; }
+  .top p { color: #98989d; }
+  .all { background: #f5f5f7; color: #1d1d1f; }
+  .all:hover { background: #d1d1d6; }
+  h3, .note, .meta small { color: #6e6e73; }
+  .card, .meta { border-color: #2c2c2e; }
+  .formats a { background: #1c1c1e; color: #f5f5f7; }
+  .formats a:hover { background: #2c2c2e; }
+  footer { border-top-color: #2c2c2e; color: #6e6e73; }
+  footer a:hover { color: #e0e0e0; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1><a href="/"><img src="../assets/frida.svg" alt="frida" width="73" height="32"></a></h1>
+  <nav>
+    <a href="https://mony.company/" target="_blank" rel="noopener">Company</a>
+    <a href="./" aria-current="page">Brand Kit</a>
+    <a href="../support/">Support</a>
+  </nav>
+</header>
+<main>
+  <div class="top">
+    <div>
+      <h2>Brand Kit</h2>
+      <p>The Frida logo and app icon, for press and partners.</p>
+    </div>
+    <a class="all" href="../assets/brand/frida-brand-kit.zip" download>
+      <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v7.5M4.75 7 8 10.25 11.25 7M3 13.25h10"/></svg>
+      Download all
+    </a>
+  </div>
+
+  <section>
+    <h3>Logo</h3>
+    <div class="grid">
+      <div class="card">
+        <div class="preview paper"><img src="../assets/brand/frida-graphite.svg" alt="frida logo in graphite"></div>
+        <div class="meta">
+          <span>Graphite<small>Primary</small></span>
+          <div class="formats">
+            <a href="../assets/brand/frida-graphite.svg" download>SVG</a>
+            <a href="../assets/brand/frida-graphite.png" download>PNG</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview white"><img src="../assets/brand/frida-black.svg" alt="frida logo in black"></div>
+        <div class="meta">
+          <span>Black</span>
+          <div class="formats">
+            <a href="../assets/brand/frida-black.svg" download>SVG</a>
+            <a href="../assets/brand/frida-black.png" download>PNG</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview ink"><img src="../assets/brand/frida-white.svg" alt="frida logo in white"></div>
+        <div class="meta">
+          <span>White<small>For dark backgrounds</small></span>
+          <div class="formats">
+            <a href="../assets/brand/frida-white.svg" download>SVG</a>
+            <a href="../assets/brand/frida-white.png" download>PNG</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview icon"><img src="../assets/brand/frida-app-icon.png" alt="Frida app icon"></div>
+        <div class="meta">
+          <span>App icon<small>1024 &times; 1024</small></span>
+          <div class="formats">
+            <a href="../assets/brand/frida-app-icon.png" download>PNG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="note">Please use the logo as it is here: don&rsquo;t stretch it, redraw it, recolor it or add effects, and give it room to breathe.</p>
+</main>
+<footer>
+  <span>&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</span>
+  <a href="../terms/">Terms</a>
+  <a href="../privacy/">Privacy</a>
+</footer>
+</body>
+</html>
