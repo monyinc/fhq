@@ -36,21 +36,16 @@ body {
 }
 header {
   display: flex;
-  align-items: center;
+  /* The wordmark's baseline sits on the links' baseline (its image ends just below it). */
+  align-items: baseline;
   justify-content: space-between;
   padding: 1.5rem clamp(16px, 4vw, 2.5rem);
 }
-h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  opacity: 0.35;
-  transition: opacity 160ms ease;
-}
-h1:hover { opacity: 0.6; }
-h1 a { color: inherit; text-decoration: none; }
+/* The wordmark: "frida" in one monoline hand, in graphite ink. */
+h1 { margin: 0; line-height: 0; }
+h1 a { display: block; }
+h1 img { display: block; height: 32px; width: auto; opacity: 0.85; transition: opacity 160ms ease; }
+h1 a:hover img { opacity: 1; }
 /* The header links take the title's rounded font. */
 nav { display: flex; gap: 1.25rem; font-family: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif; font-size: 1rem; font-weight: 500; line-height: 1; }
 nav a { color: #8a8a8a; text-decoration: none; transition: color 160ms ease; }
@@ -182,7 +177,7 @@ footer .company { text-decoration: underline dashed 1px; text-underline-offset: 
 </head>
 <body>
 <header>
-  <h1><a href="/">frida</a></h1>
+  <h1><a href="/"><img src="assets/frida.svg" alt="frida" width="73" height="32"></a></h1>
   <nav>
     <a href="https://mony.company/" target="_blank" rel="noopener">Company</a>
     <a href="support/">Support</a>
