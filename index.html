@@ -146,15 +146,16 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* The footage fades to white at the bottom, so a hairline marks where the video ends. */
 footer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem 1.25rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
   padding: 1.5rem 16px 2rem;
   border-top: 1px solid #e5e5ea;
   font-size: 0.75rem;
   text-align: center;
   color: #a1a1a6;
 }
+footer div { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.25rem; }
 footer a { color: inherit; text-decoration: none; transition: color 160ms ease; }
 footer a:hover { color: #3a3a3a; }
 footer .company { text-decoration: underline dashed 1px; text-underline-offset: 3px; }
@@ -181,7 +182,6 @@ footer .company { text-decoration: underline dashed 1px; text-underline-offset: 
   <h1><a href="/"><img src="assets/frida.svg" alt="frida" width="73" height="32"></a></h1>
   <nav>
     <a href="https://mony.company/" target="_blank" rel="noopener">Company</a>
-    <a href="brand/">Brand Kit</a>
     <a href="support/">Support</a>
   </nav>
 </header>
@@ -224,9 +224,12 @@ footer .company { text-decoration: underline dashed 1px; text-underline-offset: 
   </div>
 </main>
 <footer>
+  <div>
+    <a href="brand/">Brand Kit</a>
+    <a href="terms/">Terms</a>
+    <a href="privacy/">Privacy</a>
+  </div>
   <span>&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</span>
-  <a href="terms/">Terms</a>
-  <a href="privacy/">Privacy</a>
 </footer>
 <script>
 // The title appears roughly left to right: each letter flickers through one to three colored blocks

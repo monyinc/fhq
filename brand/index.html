@@ -36,7 +36,7 @@ h1 img { display: block; height: 32px; width: auto; opacity: 0.85; transition: o
 h1 a:hover img { opacity: 1; }
 nav { display: flex; gap: 1.25rem; font-family: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif; font-size: 1rem; font-weight: 500; line-height: 1; }
 nav a { color: #8a8a8a; text-decoration: none; transition: color 160ms ease; }
-nav a:hover, nav a[aria-current="page"] { color: #3a3a3a; }
+nav a:hover { color: #3a3a3a; }
 
 main {
   max-width: 60rem;
@@ -121,17 +121,18 @@ section + section { margin-top: 3rem; }
 
 footer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem 1.25rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
   padding: 1.5rem 16px 2rem;
   border-top: 1px solid #e5e5ea;
   font-size: 0.75rem;
   text-align: center;
   color: #a1a1a6;
 }
+footer div { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.25rem; }
 footer a { color: inherit; text-decoration: none; transition: color 160ms ease; }
-footer a:hover { color: #3a3a3a; }
+footer a:hover, footer a[aria-current="page"] { color: #3a3a3a; }
 footer .company { text-decoration: underline dashed 1px; text-underline-offset: 3px; }
 
 @media (max-width: 640px) {
@@ -141,7 +142,7 @@ footer .company { text-decoration: underline dashed 1px; text-underline-offset: 
 @media (prefers-color-scheme: dark) {
   body { background: #0a0a0a; color: #f5f5f7; }
   nav a { color: #7a7a7a; }
-  nav a:hover, nav a[aria-current="page"] { color: #e0e0e0; }
+  nav a:hover { color: #e0e0e0; }
   .all { border-color: #f5f5f7; color: #f5f5f7; }
   .all:hover { background: rgb(255 255 255 / 0.08); }
   h3, .note, .meta small { color: #6e6e73; }
@@ -149,7 +150,7 @@ footer .company { text-decoration: underline dashed 1px; text-underline-offset: 
   .formats a { background: #1c1c1e; color: #f5f5f7; }
   .formats a:hover { background: #2c2c2e; }
   footer { border-top-color: #2c2c2e; color: #6e6e73; }
-  footer a:hover { color: #e0e0e0; }
+  footer a:hover, footer a[aria-current="page"] { color: #e0e0e0; }
 }
 </style>
 </head>
@@ -158,7 +159,6 @@ footer .company { text-decoration: underline dashed 1px; text-underline-offset: 
   <h1><a href="/"><img src="../assets/frida.svg" alt="frida" width="73" height="32"></a></h1>
   <nav>
     <a href="https://mony.company/" target="_blank" rel="noopener">Company</a>
-    <a href="./" aria-current="page">Brand Kit</a>
     <a href="../support/">Support</a>
   </nav>
 </header>
@@ -219,9 +219,12 @@ footer .company { text-decoration: underline dashed 1px; text-underline-offset: 
   <p class="note">Please use the logo as it is here: don&rsquo;t stretch it, redraw it, recolor it or add effects, and give it room to breathe.</p>
 </main>
 <footer>
+  <div>
+    <a href="./" aria-current="page">Brand Kit</a>
+    <a href="../terms/">Terms</a>
+    <a href="../privacy/">Privacy</a>
+  </div>
   <span>&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</span>
-  <a href="../terms/">Terms</a>
-  <a href="../privacy/">Privacy</a>
 </footer>
 </body>
 </html>
