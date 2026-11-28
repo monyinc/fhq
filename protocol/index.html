@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frida Protocol</title>
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<style>
+/* The home page's header and footer, with a hero between them; the footer keeps to the bottom of
+   the window. */
+html, body { margin: 0; }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1d1d1f;
+}
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.5rem clamp(16px, 4vw, 2.5rem);
+}
+h1 { margin: 0; line-height: 0; }
+h1 a { display: block; }
+h1 img { display: block; height: 32px; width: auto; opacity: 0.85; transition: opacity 160ms ease; }
+h1 a:hover img { opacity: 1; }
+nav { display: flex; gap: 1.25rem; font-family: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont, sans-serif; font-size: 1rem; font-weight: 500; line-height: 1; }
+nav a { color: #8a8a8a; text-decoration: none; transition: color 160ms ease; }
+nav a:hover { color: #3a3a3a; }
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(3rem, 14vh, 8rem) 16px clamp(2.5rem, 6vh, 4rem);
+  text-align: center;
+}
+/* A sturdy newspaper serif: Source Serif at its text optical size keeps the low contrast and
+   heavy serifs of the reference at display sizes. */
+.hero h2 {
+  margin: 0;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  font-weight: 400;
+  font-variation-settings: "opsz" 20;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+main { flex: 1; }
+.version { margin: 0.875rem 0 0; font-size: 0.6875rem; letter-spacing: 0.02em; color: #a1a1a6; }
+.lede {
+  margin: 1.5rem 0 0;
+  max-width: 34rem;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
+  line-height: 1.5;
+  color: #6e6e73;
+  text-wrap: balance;
+}
+.nowrap { white-space: nowrap; }
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1.5rem 16px 2rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #a1a1a6;
+}
+footer div { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.25rem; }
+footer a { color: inherit; text-decoration: none; transition: color 160ms ease; }
+footer a:hover { color: #3a3a3a; }
+footer .company { text-decoration: underline dashed 1px; text-underline-offset: 3px; }
+@media (prefers-color-scheme: dark) {
+  body { background: #0a0a0a; color: #f5f5f7; }
+  .version { color: #6e6e73; }
+  .lede { color: #a1a1a6; }
+  nav a { color: #7a7a7a; }
+  nav a:hover { color: #e0e0e0; }
+  footer { color: #6e6e73; }
+  footer a:hover { color: #e0e0e0; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1><a href="/"><img src="../assets/frida.svg" alt="frida" width="73" height="32"></a></h1>
+  <nav>
+    <a href="https://mony.company/" target="_blank" rel="noopener">Company</a>
+    <a href="../support/">Support</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h2>Frida Protocol</h2>
+    <p class="version">v1.0</p>
+    <p class="lede">Frida Protocol turns every purchase into a <span class="nowrap">sub-second</span>, state-aware bilateral negotiation</p>
+  </section>
+</main>
+<footer>
+  <div>
+    <a href="../brand/">Brand Kit</a>
+    <a href="../terms/">Terms</a>
+    <a href="../privacy/">Privacy</a>
+  </div>
+  <span>&copy; 2026 <a class="company" href="https://mony.company/" target="_blank" rel="noopener">MonyCompany Inc.</a> All rights reserved.</span>
+</footer>
+</body>
+</html>
